@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Home Page</title>
+
+<style>
+	body {
+		margin: 50px;
+	}
+
+	section {
+		margin: 100px;
+		box-shadow: 1px 1px 1px 1px gray;
+		padding: 15px;
+	}	
+
+
+
+</style>
+</head>
+
+<body>
+<h1>Home Page</h1>
+
+<p>Testing serving up a basic web page using a basic web server.</p>
+
+<section>
+	<h2>Basic Index/Guide</h2>
+	<p>You can use a number of requests to access information from the server</p>
+
+	<h3>For Week 2</h3>
+	<ul>
+		<li><strong>/get</strong> + <mark>?title=dune</mark> will give you information on some of the books we have to offer</li>
+		<li><strong>/add</strong> + <mark>?title=something</mark> will add books to our repository and give you a count on how many are there. We currently do not support deleting new books.</li>
+		<li><strong>/delete</strong> + <mark>?title=dune</mark> will remove books from our repository and give you a count on how many remain</li>
+	</ul>
+
+
+
+</section>
+
+</body>
+</html>
