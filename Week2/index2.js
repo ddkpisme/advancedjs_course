@@ -32,40 +32,16 @@ http.createServer(function(req,res) {
 //Also display remaining information
     case '/delete':
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        if (params.title === 'dune') {
-            var index = lists.books.indexOf(lists.get("dune"));
-            var rmv = lists.books.splice(index,1);
-            count = lists.books.length;
-            res.end(params.title + " Removed " + os.EOL + os.EOL + "Remaining books: " + count);
-            console.log(JSON.stringify(rmv) + " Removed " + os.EOL + os.EOL + "Remaining books: " + count);
-        }
-        else if (params.title === 'it') {
-            var index = lists.books.indexOf(lists.get("it"));
-            var rmv2 = lists.books.splice(index,1);
-            count = lists.books.length;
-            res.end(params.title + " Removed " + os.EOL + os.EOL + "Remaining books: " + count);
-            console.log(JSON.stringify(rmv2) + " Removed " + os.EOL + os.EOL + "Remaining books: " + count);
-        }
-        else if (params.title === 'moby dick') {
-            var index = lists.books.indexOf(lists.get("moby dick"));
-            var rmv3 = lists.books.splice(index,1);
-            count = lists.books.length;
-            res.end(params.title + " Removed " + os.EOL + os.EOL + "Remaining books: " + count);
-            console.log(JSON.stringify(rmv3) + " Removed " + os.EOL + os.EOL + "Remaining books: " + count);
-        }
-        else {
-            res.end("Missing Deleted Parameters!" + "Or no longer there!");
-        }
+        let removeMe = lists.del(params.title);
+        res.end(params.title + " removed " + os.EOL + os.EOL + "Number of Books Remaining: " + removeMe);
         break;
 //add support for new titles being added to array
 //not able to delete ATM need regex
     case '/add':
-        let putMe = params.title;
-        let adding = lists.books.push(putMe);
-        count = lists.books.length;
+        let putMe = lists.ad(params.title);
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end("You added: " + putMe + " to the book list." + os.EOL + os.EOL + "Our new book count is: " + count);
-        console.log("User added books to the array" + os.EOL + os.EOL + "Book Title: " + putMe + os.EOL + "Book Count: " + count);
+        res.end("You added: " + params.title + " to the book list." + os.EOL + os.EOL + "Our new book count is: " + putMe);
+        console.log("User added books to the array" + os.EOL + os.EOL + "Book Title: " + params.title + os.EOL + "Book Count: " + putMe);
         break;
     default:
         res.writeHead(404, {'Content-Type': 'text/html'});
