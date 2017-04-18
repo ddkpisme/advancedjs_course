@@ -34,6 +34,7 @@ http.createServer(function(req,res) {
         res.writeHead(200, {'Content-Type': 'text/plain'});
         let removeMe = lists.del(params.title);
         res.end(params.title + " removed " + os.EOL + os.EOL + "Number of Books Remaining: " + removeMe);
+        console.log(params.title + " removed " + os.EOL + os.EOL + "Number of Books Remaining: " + removeMe);
         break;
 //add support for new titles being added to array
 //not able to delete ATM need regex
