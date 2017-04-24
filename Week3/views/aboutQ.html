@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>About Page</title>
+
+</head>
+
+<body>
+<h1>About Page</h1>
+
+<p>This page talks about serving up files using a simple nodejs web server.</p>
+</br>
+
+
+<h5>Search for a book</h5>
+<form action="/search" method="post">
+	<input id="userSearch" name="booktitle" placeholder="Enter title of Book" type="text">
+	<input type="submit">
+</form>
+
+</br>
+
+
+<p>{{name}} {{title}}</p>
+
+<p>Details for {{title}}</p>
+
+{{#if result}}
+<li>Title: {{ result.title }}
+<li>Author: {{ result.author }}
+<li>Pubdate: {{ result.pubdate }}
+</br>
+
+<h6>Would you like to delete this entry?</h6>
+
+<a href="/delete?title={{result.title}}">Delete</a> 
+
+</br>
+
+{{else}}
+{{title}} not found
+{{/if}}
+
+
+
+<!-- 
+<script>
+
+document.getElementById('remove').on("click", function() {
+	var otherInput = document.getElementById('userSearch').value;
+	this.setAttribute("name", "remove");
+})
+
+</script>
+-->
+
+</body>
+</html>

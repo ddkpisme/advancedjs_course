@@ -1,0 +1,21 @@
+{
+  "name": "useexpress",
+  "version": "1.0.0",
+  "description": "This week we are using express to spin up a web server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "Week3",
+    "examples"
+  ],
+  "author": "Dylan Patterson",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0"
+  }
+}
