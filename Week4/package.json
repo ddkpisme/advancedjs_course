@@ -1,0 +1,31 @@
+{
+  "name": "useexpress",
+  "version": "1.0.0",
+  "description": "This week we are using express to spin up a web server",
+  "main": "index.js",
+  "scripts": {
+    "test": "chai",
+    "lint1": "mocha",
+    "lint": "eslint **/*.js"
+  },
+  "keywords": [
+    "Express",
+    "Week3",
+    "examples"
+  ],
+  "author": "Dylan Patterson",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.3.0"
+  }
+}
