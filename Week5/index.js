@@ -69,6 +69,15 @@ app.get('/add', function(req,res){
     console.log("User added books to the array" + os.EOL + os.EOL + "Book Title: " + req.query.title + os.EOL + "Book Count: " + putMe);
 });
 
+//Allow user to add on home page
+
+app.post('/add', function(req,res){
+    let putMe = lists.ad(req.body.addBook);
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end("You added: " + req.body.addBook + " to the book list." + os.EOL + os.EOL + "Our new book count is: " + putMe);
+    console.log("User added books to the array" + os.EOL + os.EOL + "Book Title: " + req.body.addBook + os.EOL + "Book Count: " + putMe);
+});
+
 // define 404 handler
 app.use(function(req,res) {
  res.status(404);
