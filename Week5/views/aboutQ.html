@@ -109,7 +109,12 @@ div.tab a.active {
 {{title}} not found
 {{/if}}
 
+<h3>Add a Book</h3>
 
+<form action="/add" method="post">
+	<input id="userSearch" name="addBook" placeholder="Enter title of Book" type="text">
+	<input type="submit">
+</form>
 
 <!-- 
 <script>
