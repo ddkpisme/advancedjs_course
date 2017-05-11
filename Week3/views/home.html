@@ -2,19 +2,89 @@
 <html>
 
 <head>
-	<title>Home Page</title>
+	<title>Main Page</title>
 
 <style>
 	body {
 		margin: 50px;
 	}
 
+	div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+div.tab a {
+    background-color: inherit;
+    text-decoration: none;
+    color: black;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+div.tab a:hover {
+    background-color: #ddd;
+}
+
+div.tab a.active {
+    background-color: #ccc;
+}
+
+.bookSearch input {
+	background-color: white;
+	box-shadow: none;
+	border: none;
+}
+
+.bookSearch input:hover {
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 3px 3px gray;
+}
+
 	section {
 		margin: 100px;
 		box-shadow: 1px 1px 1px 1px gray;
 		padding: 15px;
+		border-radius: 10px;
+	}
+
+	section a {
+		color: black;
+		text-decoration: none;
+		
+	}
+
+	section a:hover {
+		background-color: black;
+		color: white;
+		cursor: pointer;
+		padding: 5px;
+		border-radius: 10px;
+		box-shadow: 1px 1px 3px 3px gray;
 	}	
 
+	footer {
+		width: 70%;
+		background-color: black;
+		padding-bottom: 15px;
+		padding-top: 15px;
+		text-align: center;
+		border-radius: 10px 10px 0px 0px;
+		display: block;
+		position: absolute;
+		margin-bottom: 0px;
+		margin-top: 100px;
+		margin-left: 150px;
+		margin-right: 100px;
+		color: white;
+	}
 
 
 </style>
@@ -23,7 +93,10 @@
 <body>
 <h1>Home Page</h1>
 
-<p>Testing serving up a basic web page using a basic web server.</p>
+<div class="tab">
+  <a href="/">Home</a>
+  <a href="about">About</a>
+</div>
 
 <section>
 	<h2>Basic Index/Guide</h2>
@@ -40,7 +113,25 @@
 	<ul>
 		<li><strong>/about</strong> will give you information on some of the books we have to offer, you may also search for a particular book here and remove a particular book here.</li>
 	</ul>
+	<h3>For Week 4</h3>
+	<ul>
+		<li><strong>Linting</strong> was applied to our application </li>
+	</ul>
+	<h3>For Week 5</h3>
+	<ul>
+		<li><strong>Templates</strong> are needed to serve up pages dynamically using handlebars and body-parser. We expanded on templates this week </li>
+	</ul>
 </section>
+
+<section>
+<h3>Book Details</h3>
+
+<h5>Search for a book</h5>
+<form action="/get" method="post">
+	<input id="userSearch" name="booktitle" placeholder="Enter title of Book" type="text">
+	<input type="submit">
+</form>
+
 
 </body>
 </html>

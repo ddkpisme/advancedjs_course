@@ -47,7 +47,6 @@ app.get('/get', function(req,res){
 
 //add a get-post for query form data
 app.post('/get', function(req,res){
-    console.log(req.body)
     var header = 'Searching for: ' + req.body.booktitle + '<br>';
     var found = lists.get(req.body.booktitle);
     res.render("aboutQ", {name: "Book Title: ", 
@@ -64,10 +63,19 @@ app.get('/delete', function(req,res){
 
 //add information from the module array
 app.get('/add', function(req,res){
-    let putMe = lists.ad(req.query.title);
+   var newBook = {
+        title: req.query.title
+    };
+    var putMe = lists.ad(newBook);
+
+    if (!putMe) {
+        res.send("Book is already there!");
+    }
+    else {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end("You added: " + req.query.title + " to the book list." + os.EOL + os.EOL + "Our new book count is: " + putMe);
     console.log("User added books to the array" + os.EOL + os.EOL + "Book Title: " + req.query.title + os.EOL + "Book Count: " + putMe);
+}
 });
 
 // define 404 handler

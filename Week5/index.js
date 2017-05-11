@@ -62,20 +62,38 @@ app.get('/delete', function(req,res){
 
 
 //add information from the module array
+//add information from the module array
 app.get('/add', function(req,res){
-    let putMe = lists.ad(req.query.title);
+   var newBook = {
+        title: req.query.title
+    };
+    var putMe = lists.ad(newBook);
+
+    if (!putMe) {
+        res.send("Book is already there!");
+    }
+    else {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end("You added: " + req.query.title + " to the book list." + os.EOL + os.EOL + "Our new book count is: " + putMe);
     console.log("User added books to the array" + os.EOL + os.EOL + "Book Title: " + req.query.title + os.EOL + "Book Count: " + putMe);
+}
 });
 
 //Allow user to add on home page
 
 app.post('/add', function(req,res){
-    let putMe = lists.ad(req.body.addBook);
+    var newBook = {
+        title: req.body.addBook
+    };
+    let putMe = lists.ad(newBook);
+    if (!putMe) {
+        res.send("Book is already there!");
+    }
+    else {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end("You added: " + req.body.addBook + " to the book list." + os.EOL + os.EOL + "Our new book count is: " + putMe);
     console.log("User added books to the array" + os.EOL + os.EOL + "Book Title: " + req.body.addBook + os.EOL + "Book Count: " + putMe);
+}
 });
 
 // define 404 handler
