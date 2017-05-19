@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Home Page</title>
+
+<style>
+	body {
+		margin: 50px;
+	}
+
+	section {
+		margin: 100px;
+		box-shadow: 1px 1px 1px 1px gray;
+		padding: 15px;
+		border-radius: 10px;
+	}
+
+	section a {
+		background-color: black;
+		border-radius: 10px;
+		box-shadow: 1px 1px 3px 3px gray;
+		color: white;
+		text-decoration: none;
+		padding: 5px;
+	}
+
+	section a:hover {
+		background-color: white;
+		color: black;
+	}	
+
+	footer {
+		width: 70%;
+		background-color: black;
+		padding-bottom: 15px;
+		padding-top: 15px;
+		text-align: center;
+		border-radius: 10px 10px 0px 0px;
+		display: block;
+		position: absolute;
+		margin-bottom: 0px;
+		margin-top: 100px;
+		margin-left: 150px;
+		margin-right: 100px;
+		color: white;
+	}
+
+
+</style>
+</head>
+
+<body>
+<h1>Home Page</h1>
+
+<p>Testing serving up a basic web page using a basic web server.</p>
+
+<section>
+	<h2>Basic Index/Guide</h2>
+	<p>You can use a number of requests to access information from the server</p>
+
+	<h3>For Week 2</h3>
+	<ul>
+		<li><strong>/get</strong> + <mark>?title=dune</mark> will give you information on some of the books we have to offer</li>
+		<li><strong>/add</strong> + <mark>?title=something</mark> will add books to our repository and give you a count on how many are there. We currently do not support deleting new books.</li>
+		<li><strong>/delete</strong> + <mark>?title=dune</mark> will remove books from our repository and give you a count on how many remain</li>
+	</ul>
+
+	<h3>For Week 3</h3>
+	<ul>
+		<li><strong>/about</strong> will give you information on some of the books we have to offer, you may also search for a particular book here and remove a particular book here.</li>
+	</ul>
+</section>
+
+<section>
+<h3>Dynamic Area</h3>
+<a href="about">About Page</a>
+
+
+
+</section>
+
+<footer>Author: Dylan Patterson</footer>
+
+</body>
+</html>
