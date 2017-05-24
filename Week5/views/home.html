@@ -2,58 +2,17 @@
 <html>
 
 <head>
-	<title>Home Page</title>
-
-<style>
-	body {
-		margin: 50px;
-	}
-
-	section {
-		margin: 100px;
-		box-shadow: 1px 1px 1px 1px gray;
-		padding: 15px;
-		border-radius: 10px;
-	}
-
-	section a {
-		background-color: black;
-		border-radius: 10px;
-		box-shadow: 1px 1px 3px 3px gray;
-		color: white;
-		text-decoration: none;
-		padding: 5px;
-	}
-
-	section a:hover {
-		background-color: white;
-		color: black;
-	}	
-
-	footer {
-		width: 70%;
-		background-color: black;
-		padding-bottom: 15px;
-		padding-top: 15px;
-		text-align: center;
-		border-radius: 10px 10px 0px 0px;
-		display: block;
-		position: absolute;
-		margin-bottom: 0px;
-		margin-top: 100px;
-		margin-left: 150px;
-		margin-right: 100px;
-		color: white;
-	}
 
 
-</style>
 </head>
 
 <body>
 <h1>Home Page</h1>
 
-<p>Testing serving up a basic web page using a basic web server.</p>
+<div class="tab">
+  <a href="/">Home</a>
+  <a href="about">About</a>
+</div>
 
 <section>
 	<h2>Basic Index/Guide</h2>
@@ -70,17 +29,52 @@
 	<ul>
 		<li><strong>/about</strong> will give you information on some of the books we have to offer, you may also search for a particular book here and remove a particular book here.</li>
 	</ul>
+	<h3>For Week 4</h3>
+	<ul>
+		<li><strong>Linting</strong> was applied to our application </li>
+	</ul>
+	<h3>For Week 5</h3>
+	<ul>
+		<li><strong>Templates</strong> are needed to serve up pages dynamically using handlebars and body-parser. We expanded on templates this week </li>
+	</ul>
 </section>
 
 <section>
-<h3>Dynamic Area</h3>
-<a href="about">About Page</a>
+<h3>Book Details</h3>
+
+<h5>Search for a book</h5>
+<form action="/get" method="post">
+	<input id="userSearch" name="booktitle" placeholder="Enter title of Book" type="text">
+	<input type="submit">
+</form>
+
+<h3>Add a Book</h3>
+
+<form action="/add" method="post">
+	<input id="userSearch" name="addBook" placeholder="Enter title of Book" type="text">
+	<input type="submit">
+</form>
+
+<h4 style="margin-top: 30px;">Books in Stock</h4>
+{{! if block to load book titles }}
+
+{{#if json_data}}
+<ul class="bookSearch">
+{{#each bookTitle}}
+<form action="/get" method="post">
+ <li><input id="userSearch" name="booktitle" value="{{title}}" type="submit"></li>
+ </form>
+ {{/each}}
+ </ul>
+{{else}}
+ <h2>Missing array!</h2>
+{{/if}}
+
+
 
 
 
 </section>
-
-<footer>Author: Dylan Patterson</footer>
 
 </body>
 </html>

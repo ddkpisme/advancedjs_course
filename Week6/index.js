@@ -13,32 +13,21 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
 
-app.engine(".html", handlebars({extname: '.html'}));
+app.engine(".html", handlebars({extname: '.html', defaultLayout: 'main' }));
 app.set("view engine", ".html");
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
-
-/* //Split gives you an array with two items in it
-    let url = req.url.split("?");  // seperate route from query string
-    let params = qs.parse(url[1]); // convert query string to object
-    let path = url[0].toLowerCase(); */
-
-//Define url parameters
-
-/*
-Book.find({}, function (err, items) {
-  if (err) return next(err);
-  console.log(items);
-  // other code here
-});
-*/
 
 
 //Home page
 app.get('/', function(req,res){
  res.type('text/html');
  res.locals.json_data = Book.find({});
- res.render(__dirname + '/views/layouts/main.html', {bookTitle: ['dune', 'it', 'moby dick']});
+ Book.find({}, function (err, item) {
+    if (err) return next(err);
+    //console.log(item);
+   res.render(__dirname + '/views/home.html', {bookTitle: item});
+});
 });
 
 //About Page  

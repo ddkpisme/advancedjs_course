@@ -12,7 +12,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
 
-app.engine(".html", handlebars({extname: '.html'}));
+app.engine(".html", handlebars({extname: '.html', defaultLayout: 'main' }));
 app.set("view engine", ".html");
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
@@ -29,7 +29,7 @@ app.use(bp.urlencoded({ extended: true }));
 app.get('/', function(req,res){
  res.type('text/html');
  res.locals.json_data = lists.all();
- res.render(__dirname + '/views/layouts/main.html', {bookTitle: ['dune', 'it', 'moby dick']});
+ res.render(__dirname + '/views/home.html', {bookTitle: lists.all()});
 });
 
 //About Page  
