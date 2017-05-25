@@ -1,0 +1,3 @@
+{ "_id" : { "$oid" : "5918a62da334ece6ee32a936" }, "title" : "it", "author" : "steven king", "pubdate" : 1975 }
+{ "_id" : { "$oid" : "5918a63fa334ece6ee32a937" }, "title" : "moby dick", "author" : "herman melville", "pubdate" : 1869 }
+{ "_id" : { "$oid" : "591a591c96b3f1fa6d40e1f3" }, "title" : "dune", "author" : "frank herbert", "pubdate" : 1969 }

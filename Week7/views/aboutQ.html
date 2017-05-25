@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>About Page</title>
+
+</head>
+
+<body>
+<h1>Details Page</h1>
+
+<div class="tab">
+  <a href="/">Home</a>
+  <a href="about">About</a>
+</div>
+</br>
+
+
+<p><strong>{{name}}</strong> {{title}}</p>
+
+<p><strong>Details for:</strong> {{title}}</p>
+
+{{! if to display book information }}
+
+{{#if result}}
+<li>Title: {{ result.title }}
+<li>Author: {{ result.author }}
+<li>Pubdate: {{ result.pubdate }}
+</br>
+
+<h6>Would you like to delete this entry?</h6>
+
+<a href="/delete?title={{result.title}}">Delete</a> 
+
+</br>
+
+{{else}}
+{{title}} not found
+{{/if}}
+
+<h3>Add a Book</h3>
+
+<form action="/add" method="post">
+	<input id="userSearch" name="addBook" placeholder="Enter title of Book" type="text">
+	<input type="submit">
+</form>
+
+
+</body>
+</html>

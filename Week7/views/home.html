@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+<head>
+
+
+</head>
+
+<body>
+<h1>Home Page</h1>
+
+<div class="tab">
+  <a href="/">Home</a>
+  <a href="about">About</a>
+</div>
+
+<section>
+	<h2>Basic Index/Guide</h2>
+	<p>You can use a number of requests to access information from the server</p>
+
+	<h3>For Week 2</h3>
+	<ul>
+		<li><strong>/get</strong> + <mark>?title=dune</mark> will give you information on some of the books we have to offer</li>
+		<li><strong>/add</strong> + <mark>?title=something</mark> will add books to our repository and give you a count on how many are there. We currently do not support deleting new books.</li>
+		<li><strong>/delete</strong> + <mark>?title=dune</mark> will remove books from our repository and give you a count on how many remain</li>
+	</ul>
+
+	<h3>For Week 3</h3>
+	<ul>
+		<li><strong>/about</strong> will give you information on some of the books we have to offer, you may also search for a particular book here and remove a particular book here.</li>
+	</ul>
+	<h3>For Week 4</h3>
+	<ul>
+		<li><strong>Linting</strong> was applied to our application </li>
+	</ul>
+	<h3>For Week 5</h3>
+	<ul>
+		<li><strong>Templates</strong> are needed to serve up pages dynamically using handlebars and body-parser. We expanded on templates this week </li>
+	</ul>
+	<h3>For Week 6</h3>
+	<ul>
+		<li><strong>MongoDB</strong> replaced our in-memory array for storing information. get and delete routes now use the DB to read and write to.</li>
+	</ul>
+	<h3>For Week 7</h3>
+	<ul>
+		<li><strong>REST APIs</strong> to; get a single item, get all items, delete an item, add an item</li></br>
+			<ul>
+			<li>/api/v1/books</li>
+			<li>/api/v1/book/:title</li>
+			<li>/api/v1/delete/:title</li>
+			<li>/api/v1/add/:title</li>
+			</ul>
+	</ul>
+</section>
+
+<section>
+<h3>Book Details</h3>
+
+<h5>Search for a book</h5>
+<form action="/get" method="post">
+	<input id="userSearch" name="booktitle" placeholder="Enter title of Book" type="text">
+	<input type="submit">
+</form>
+
+<h3>Add a Book</h3>
+
+<form action="/add" method="post">
+	<input id="userSearch" name="addBook" placeholder="Enter title of Book" type="text">
+	<input type="submit">
+</form>
+
+<h4 style="margin-top: 30px;">Books in Stock</h4>
+{{! if block to load book titles }}
+
+{{#if json_data}}
+<ul class="bookSearch">
+{{#each bookTitle}}
+<form action="/get" method="post">
+ <li><input id="userSearch" name="booktitle" value="{{title}}" type="submit"></li>
+ </form>
+ {{/each}}
+ </ul>
+{{else}}
+ <h2>Missing array!</h2>
+{{/if}}
+
+
+
+
+
+</section>
+
+</body>
+</html>
