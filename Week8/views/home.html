@@ -82,21 +82,19 @@
       }
       
       // Handle item delete
-      onDelete(badItem){
-      let title = badItem.toLowerCase();
-      console.log(title);
-        fetch("/api/v1/delete/", {
-          method: "GET",
-          headers: { 'Content-Type': 'application/json' }
-        }).then(res => res.json())
-          .then((json) => {
-        const remainder = this.state.data.filter((item) => {
-          return item.title !== badItem;
-        })
-        // Update state with new array
-        this.setState({data: remainder});
-        this.setState({curItem: {}});
-      });
+      onDelete(title){
+        fetch("/api/v1/delete/" + title).then((response) => {
+          return response.json();
+        }).then((results) => {
+          console.log(results)  
+          // Filter all items except 
+          const remainder = this.state.data.filter((item) => {
+            return item.title !== title;
+          });
+          // Update state with new array
+          this.setState({data: remainder});
+          this.setState({curItem: {}});
+        });
       }
     
       render() {

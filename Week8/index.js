@@ -50,6 +50,7 @@ app.get('/api/v1/books', (req,res, next) => {
     });
 });
 
+
 app.get('/api/v1/delete/:title', (req,res, next) => {
     Book.remove({"title":req.params.title }, (err, result) => {
         if (err) return next(err);
@@ -58,14 +59,7 @@ app.get('/api/v1/delete/:title', (req,res, next) => {
     });
 });
 
-app.get('/api/v1/delete/', (req,res, next) => {
-    Book.remove({"title":req.body.title }, (err, result) => {
-        if (err) return next(err);
-        // return # of items deleted
-        console.log(result + "Removed");
-        //res.json({"deleted": result.result.n});
-    });
-});
+
 
 app.get('/api/v1/add/:title/:author/:pubdate', (req,res, next) => {
     //
