@@ -19,7 +19,14 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
 //Start with Home Page
-app.get('/', (req,res) => {
+
+app.get('/', function(req,res){
+ res.type('text/html');
+ res.render('landing');
+});
+
+
+app.get('/landing', (req,res) => {
     Book.find((err,books) => {
         if (err) return next(err);
         res.render('home', {books: JSON.stringify(books) });    
